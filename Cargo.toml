@@ -3,7 +3,8 @@ name = "inox-protocols"
 description = "Wayland protocol bindings and Inox protocol extensions"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.85"
+# wayland-protocols 0.32 requires rustc >= 1.86 (root AGENTS.md §8).
+rust-version = "1.86"
 license = "BSD-3-Clause"
 repository = "https://github.com/Inox-desktop/inox-protocols"
 readme = "README.md"
@@ -11,7 +12,16 @@ keywords = ["wayland", "desktop", "inox"]
 categories = ["desktop"]
 
 [dependencies]
+wayland-backend = "0.3"
 wayland-client = "0.31"
+wayland-protocols = { version = "0.32", features = [
+    "client",
+    "server",
+    "staging",
+    "unstable",
+] }
+wayland-protocols-wlr = { version = "0.3", features = ["client", "server"] }
+wayland-scanner = "0.31"
 wayland-server = "0.31"
 
 [lints.rust]
