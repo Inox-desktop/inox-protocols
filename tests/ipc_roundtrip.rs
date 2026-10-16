@@ -127,9 +127,8 @@ fn inox_ipc_round_trips_version_and_reload() {
     let connection = Connection::from_socket(client_socket).expect("client connection");
     let (globals, mut queue) = registry_queue_init::<App>(&connection).expect("registry");
     let qh = queue.handle();
-    let inox: client::inox_ipc::InoxIpc = globals
-        .bind(&qh, 1..=1, ())
-        .expect("bind inox_ipc global");
+    let inox: client::inox_ipc::InoxIpc =
+        globals.bind(&qh, 1..=1, ()).expect("bind inox_ipc global");
 
     let mut app = App {
         version: None,
