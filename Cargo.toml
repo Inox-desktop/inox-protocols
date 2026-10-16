@@ -1,0 +1,22 @@
+[package]
+name = "inox-protocols"
+description = "Wayland protocol bindings and Inox protocol extensions"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "BSD-3-Clause"
+repository = "https://github.com/Inox-desktop/inox-protocols"
+readme = "README.md"
+keywords = ["wayland", "desktop", "inox"]
+categories = ["desktop"]
+
+[dependencies]
+wayland-client = "0.31"
+wayland-server = "0.31"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+all = "warn"
